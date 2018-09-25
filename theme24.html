@@ -4,7 +4,7 @@
  |
  |  Theme #24 by raiidens (@ tumblr)
  |  Published October 2017
- |	Updated August 2018
+ |	Updated September 2018
  |  Ver. 3.00
  |
  |  Edit as much as you like, but please do not
@@ -164,7 +164,7 @@
 <meta name="font:Post title font" content="'Montserrat', sans-serif">
 
 <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 <link href="//static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -329,6 +329,10 @@ a:hover {color: {color:Post link hover};}
     -webkit-filter: grayscale(0%);
 }
 
+.post img {max-width: 100%;}
+
+.post .reblog-list hr:first-of-type {display: none;}
+
 .photo, .photoset {padding: 0px;}
 
 .photoset .photo-slideshow {
@@ -346,6 +350,7 @@ a:hover {color: {color:Post link hover};}
     line-height: 0.85;
     text-shadow: 1px 1px {color:Post background}, 1px -1px {color:Post background}, -1px 1px {color:Post background}, -1px -1px {color:Post background};
 }
+.post-link-underline-enable .answer-text a {text-shadow: 1px 1px {color:Answer background}, 1px -1px {color:Answer background}, -1px 1px {color:Answer background}, -1px -1px {color:Answer background};}
 
 .title {
     font-variant: small-caps;
@@ -375,17 +380,20 @@ a:hover {color: {color:Post link hover};}
     margin: 0 auto;
 }
 
-.tumblr_video_container {
-    width: 100% !important;
-    margin-bottom: 5px;
+.video .video-player {
     position: relative;
-    height: 0 !important;
-    padding-bottom: 56.3%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
 }
-.tumblr_video_container iframe {
+
+.video .video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    position: absolute;
 }
 
 .chat span {
@@ -546,19 +554,19 @@ a:hover {color: {color:Post link hover};}
 }
 
 #content {
+    left: 50%;
     width: {select:Post Width}px;
     margin: 0px auto;
+    margin-left: -100px;
     transition: opacity 0.5s;
     position: absolute;
-	padding-top: 30px;
-}
-#content.layout-sidebar-on-left {
-    left: 50%;
-    margin-left: -100px;
+	padding-top: 50px;
 }
 #content.layout-sidebar-on-right {
+    left: unset;
     right: 50%;
-    margin-left: -100px;
+    margin-left: unset;
+    margin-right: -100px;
 }
 
 
@@ -595,12 +603,12 @@ a:hover {color: {color:Post link hover};}
 	position: fixed;
 	width: 300px;
 	top: 11%;
-}
-.sidebar.layout-sidebar-on-left {
-    left: 50%;
-    margin-left: -450px;
+	left: 50%;
+	margin-left: -450px;
 }
 .sidebar.layout-sidebar-on-right {
+    left: unset;
+    margin-left: unset;
     right: 50%;
     margin-right: -450px;
 }
@@ -655,13 +663,17 @@ a:hover {color: {color:Post link hover};}
 .sidebar .blog-title-plain {
     font-size: 1.4rem;
     text-align: center;
-    margin: 10px 0;
     color: {color:Sidebar blog title};
     font-family: {font:Blog title font};
 }
 .sidebar .blog-title-plain a {color: {color:Sidebar blog title};}
 .sidebar.blog-title-curved .blog-title-plain,
-.sidebar.blog-title-disabled .blog-title-plain {display: none;}
+.sidebar.blog-title-disabled .blog-title-plain {
+    margin-top: -0.5rem;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
 
 .sidebar .description {
 	margin-bottom: 10px;
@@ -717,43 +729,6 @@ a.ask-link-disabled {display: none;}
     border-bottom: none;
 }
 
-
-.ripple-nav, .ripple-post {
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: {color:Sidebar nav click ripple};
-    transform: scale(0);
-    position: absolute;
-    opacity: 0.4;
-}
-.ripple-post {background: {color:Post click ripple};}
-.rippleEffect-nav {
-    animation: rippleDrop .6s linear;
-}
-.rippleEffect-post {
-    animation: rippleDrop .8s linear;
-}
-
-@keyframes rippleDrop {
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-
-@keyframes ripple-animation {
-    from {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-    to {
-        transform: scale(20);
-        opacity: 0;
-    }
-}
-
 @media screen and (max-width: 950px) {
     .blog-title {
         display: none !important;
@@ -764,6 +739,7 @@ a.ask-link-disabled {display: none;}
         left: unset !important;
         right: unset !important;
     }
+    .sidebar {margin-top: 40px !important;}
 }
 
 
@@ -850,10 +826,41 @@ $(document).tooltip({
     <div class="post {select:Post images} {select:Post click ripple}" id="{PostID}">
 
         {block:Text}
-        <div class="text"><div class="content {select:Post link underline}">
-            {block:Title}<h3 class="title"><a href="{Permalink}">{Title}</a></h3>{/block:Title}
-            {Body}
-        </div></div>
+        <div class="text">
+            <div class="content {select:Post link underline}">
+                {block:Title}<h3 class="title"><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+                
+                
+                {block:NotReblog}
+                {Body}
+                {/block:NotReblog}
+                
+                {block:RebloggedFrom}
+                <div class="reblog-list">
+                    {block:Reblogs}
+                    <hr/>
+                    <div class="post-reblog-trail-item{block:isOriginalEntry} original-reblog-content{/block:isOriginalEntry}">
+                        <p class="post-reblog-header">
+                            {block:IsActive}
+                            <a target="_blank" class="post-tumblelog-name" href="{Permalink}">{Username}:</a>
+                            {/block:IsActive}
+                            {block:IsDeactivated}
+                            <s class="inactive post-tumblelog-name">{Username}:</s>
+                            {/block:IsDeactivated}
+                        </p>
+                        <div class="post-reblog-content">
+                            <div class="post-body">
+                                {Body}
+                            </div>
+                        </div>
+                    </div>
+                    {/block:Reblogs}
+                </div>
+                {/block:RebloggedFrom}
+                
+                
+            </div>
+        </div>
         {/block:Text}
 
         {block:Photo}
