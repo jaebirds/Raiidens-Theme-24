@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+
+<!--
+ |
+ |  Theme #24 by raiidens (@ tumblr)
+ |  Published October 2017
+ |  Ver. 1.00
+ |
+ |  Edit as much as you like, but please do not
+ |  claim as your own work, and leave credit somewhere.
+ |
+ |  ! IMPORTANT !
+ |	- the curved title doesn't work on this preview :( (it might double, don't worry about it)
+ |  - use the blog title size option, keep it short, or disable it
+ |  - you need to turn the "custom sidebar image" option on for that to work
+ |  - everything else is found in the options before
+ |
+ |  Credits:
+ |  Alex Rutherford - https://codepen.io/Ruddy/pen/09052b957d82a17bd6ca70ac6663dd6a
+ |  Font Awesome Icons - https://fortawesome.github.io/Font-Awesome/
+ |  Google Fonts - https://www.google.com/fonts
+ |  IcoMoon - https://icomoon.io/
+ |  jQuery - https://jquery.com/
+ |  jQuery UI - https://jqueryui.com/
+ |  Lazy Load - http://www.appelsiini.net/projects/lazyload
+ |  Lightbox - http://www.lokeshdhakar.com/projects/lightbox2/
+ |  Paper.js - http://paperjs.org/
+ |  PXU Photoset Extended - https://github.com/PixelUnion/Extended-Tumblr-Photoset
+ |
+ -->
+ 
+<head>
+<title>{Title}</title>
+
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+<!-- Please don't edit these meta tags! -->
+<meta name="select:Post width" content="500" title="500px">
+<meta name="select:Post width" content="400" title="400px">
+<meta name="select:Post width" content="250" title="250px">
+<meta name="if:Background wave" content="1">
+<meta name="if:Custom sidebar image" content="0">
+<meta name="if:Disable blog title curve" content="0">
+<meta name="if:Disable nav click ripple" content="0">
+<meta name="if:Disable post click ripple" content="0">
+<meta name="if:Mirror layout" content="0">
+<meta name="if:Post link underline" content="1">
+<meta name="if:Lazy load images" content="1">
+<meta name="if:Fade in images on load" content="0">
+<meta name="if:Click image for full res" content="1">
+<meta name="if:Show captions" content="1">
+<meta name="if:Always show tags" content="0">
+<meta name="if:Black and white images" content="0">
+<meta name="if:Color images on hover" content="0">
+<meta name="if:Inverted tumblr buttons" content="1">
+
+<meta name="text:Curved blog title size" content="14pt">
+
+<meta name="image:Background" content="">
+<meta name="image:Sidebar" content="">
+
+<meta name="color:Background" content="skyblue">
+<meta name="color:Scrollbar" content="gray">
+<meta name="color:Tooltip background" content="#FFFFFF">
+<meta name="color:Tooltip text" content="#333333">
+<meta name="color:Tooltip border" content="#333333">
+<meta name="color:Text highlight" content="#666666">
+<meta name="color:Text highlight background" content="#aaa">
+<meta name="color:Blockquote" content="skyblue">
+
+<meta name="color:Sidebar anchor" content="#333">
+<meta name="color:Sidebar blog title" content="#333">
+<meta name="color:Sidebar text" content="#333">
+<meta name="color:Sidebar main nav" content="#555">
+<meta name="color:Sidebar main nav hover" content="#000">
+<meta name="color:Sidebar nav" content="#666">
+<meta name="color:Sidebar nav hover" content="#000">
+<meta name="color:Sidebar nav click ripple" content="#fff">
+
+<meta name="color:Post background" content="#fff">
+<meta name="color:Post text" content="#666">
+<meta name="color:Post bold text" content="#666666">
+<meta name="color:Post italic text" content="#666666">
+<meta name="color:Post link" content="#333">
+<meta name="color:Post link hover" content="#000000">
+<meta name="color:Post title" content="#333333">
+<meta name="color:Post title link" content="#333333">
+<meta name="color:Post click ripple" content="skyblue">
+<meta name="color:Asker name" content="#666666">
+<meta name="color:Question text" content="#666666">
+<meta name="color:Answer text" content="#666666">
+<meta name="color:Answer background" content="#EEEEEE">
+<meta name="color:Post info" content="#333333">
+<meta name="color:Post info tags" content="#AAAAAA">
+<meta name="color:Post info tags hover" content="#000000">
+<meta name="color:Reblog and like buttons" content="skyblue">
+
+<meta name="color:Pagination" content="#333333">
+<meta name="color:Pagination hover" content="#000000">
+
+<meta name="text:Link 1 Title" content="Link 1">
+<meta name="text:Link 1 URL" content="">
+<meta name="text:Link 2 Title" content="Link 2">
+<meta name="text:Link 2 URL" content="">
+<meta name="text:Link 3 Title" content="Link 3">
+<meta name="text:Link 3 URL" content="">
+<meta name="text:Link 4 Title" content="Link 4">
+<meta name="text:Link 4 URL" content="">
+<meta name="text:Link 5 Title" content="Link 5">
+<meta name="text:Link 5 URL" content="">
+<meta name="text:Link 6 Title" content="Link 6">
+<meta name="text:Link 6 URL" content="">
+<meta name="text:Link 7 Title" content="Link 7">
+<meta name="text:Link 7 URL" content="">
+<meta name="text:Link 8 Title" content="Link 8">
+<meta name="text:Link 8 URL" content="">
+
+<meta name="font:Tooltip font" content="'Montserrat', sans-serif">
+<meta name="font:Post font" content="'Montserrat', sans-serif">
+<meta name="font:Post info font" content="'Montserrat', sans-serif">
+<meta name="font:Blog title font" content="'Montserrat', sans-serif">
+<meta name="font:Nav link font" content="'Montserrat', sans-serif">
+<meta name="font:Post title font" content="'Montserrat', sans-serif">
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+<link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<link href="http://static.tumblr.com/o4povtk/Cesopcula/lightbox.css" rel="stylesheet" type="text/css"/>
+
+
+<style type="text/css">
+
+.tooltiptheme {
+    border-radius: 5px;
+    border: 0.5px solid {color:Tooltip border};
+    background: {color:Tooltip background};
+    color: {color:Tooltip text};
+    font-family: {font:Tooltip font};
+    font-size: 8pt;
+    line-height: 16px;
+    text-transform: uppercase;
+    box-shadow: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: {color:Scrollbar};
+    border: solid 4px {color:Background};
+}
+::-webkit-scrollbar-thumb {
+    height: 12px;
+    border: solid 2px {color:Background};
+    background-color: {color:Scrollbar};
+}
+
+.tmblr-iframe {
+    top: 3px;
+    right: 3px;
+    position: fixed !important;
+    z-index: 9999 !important;
+    white-space: nowrap;
+    opacity: 0.7;
+    {block:IfInvertedTumblrButtons}
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -ms-filter: invert(100%);
+    filter: invert(100%);
+    {/block:IfInvertedTumblrButtons}
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.tmblr-iframe-scrolled {
+    top: 65px !important;
+    right: 3px !important;
+    -ms-transform: scale(0.8, 0.8) !important;
+    -webkit-transform: scale(0.8, 0.8) !important;
+    transform: scale(0.8, 0.8) !important;
+}
+
+*::selection {background-color: {color:Text highlight background}; color: {color:Text highlight};}
+*::-moz-selection {background-color: {color:Text highlight background}; color: {color:Text highlight};}
+*::-webkit-selection {background-color: {color:Text highlight background}; color: {color:Text highlight};}
+
+html, body, p, h1, h2, h3, h4, h5, h6, blockquote {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p, h1, h3 {margin-bottom: 10px;}
+
+body {
+    font-family: {font:Post font};
+    font-size: 14pt;
+    line-height: 1.5;
+    margin: 0px;
+    color: {color:Post text};
+    background: {color:Background};
+    background-image: url('{image:Background}');
+    background-attachment: fixed;
+	overflow-y: scroll;
+}
+
+b, strong {color: {color:Post bold text};}
+i, em {color: {color:Post italic text};}
+small {font-size: 8px;}
+big {font-size: 12px;}
+
+ul {text-align: justify;}
+ul, ol {margin-left: -25px;}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+blockquote {
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    border-left: 7px solid {color:Blockquote};
+    text-align: justify;
+}
+blockquote p {display: block!important;}
+blockquote img {
+    display: block;
+    max-width: 450px;
+	width: auto;
+	height: auto;
+}
+
+a {
+    color: {color:Post link};
+    text-decoration: none;
+    position: relative;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+a:hover {color: {color:Post link hover};}
+
+.container {
+	position: absolute;
+	width: 540px;
+	padding-top: 30px;
+	{block:IfNotMirrorLayout}
+	left: 50%;
+	margin-left: -100px;
+	{/block:IfNotMirrorLayout}
+	{block:IfMirrorLayout}
+	right: 50%;
+	margin-right: -100px;
+	{/block:IfMirrorLayout}
+}
+           
+.post {
+    position: relative;
+    width: {select:Post Width}px;
+    padding: 20px;
+    height: auto;
+    overflow: hidden;
+    background: {color:Post background};
+    color: {color:Post text};
+    font-size: 12pt;
+    margin-bottom: 60px;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+}
+.photo, .photoset {padding: 0px;}
+
+.content {padding: 10px;}
+{block:IfPostLinkUnderline}
+.content a, .sidebar a {
+    border-bottom: 1px solid {color:Post link};
+    display: inline-block;
+    line-height: 0.85;
+    text-shadow: 1px 1px {color:Post background}, 1px -1px {color:Post background}, -1px 1px {color:Post background}, -1px -1px {color:Post background};
+}
+{/block:IfPostLinkUnderline}
+
+{block:IfBlackAndWhiteImages}
+.post img, .html_photoset {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+{block:IfColorImagesOnHover}
+.post img:hover, .html_photoset:hover {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+}
+{/block:IfColorImagesOnHover}
+{/block:IfBlackAndWhiteImages}
+
+.title {
+    font-variant: small-caps;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: {color:Post title};
+    font-family: {font:Post title font};
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.title a {
+    color: {color:Post title link};
+    border-bottom: 0px solid {color:Post link};
+    text-shadow: none;
+}
+           
+.photo {margin-bottom: 5px;}
+.photo img {border: 0;}
+
+.chat span {
+    float: left;
+    margin-right: 1%;
+}
+
+.answert {
+    text-align: left;
+    line-height: 15px;
+    color: {color:Answer text};
+    background-color: {color:Answer background};
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+.question {
+    margin-bottom: 0px;
+    line-height: 15px;
+    color: {color:Question text};
+}
+.askerportrait {
+    margin: 10px;
+    position: absolute;
+}
+.a {
+    margin-left: 80px;
+    min-height: 64px;
+    padding: 10px;
+}
+.asker {
+    color: {color:Asker name};
+    text-transform: uppercase;
+}
+
+.infobox {
+    position: relative;
+    margin-top: 4px;
+    width: 470px;
+    padding: 0px 20px;
+    color: {color:Post info};
+    text-transform: uppercase;
+    font-family: {font:Post info font};
+    font-size: 9pt;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+}
+.infobox a {color: {color:Post info};}
+
+.rebloglike li {
+    display: inline;
+    margin-left: 5px;
+}
+
+.reblog-button svg path, .like-button svg path {fill: {color:Reblog and like buttons};}
+
+.like-button {position: relative;}
+.like-button .like_button {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.like-button .like_button.liked {opacity: 0.5;}
+
+.like_button {
+    position: relative;
+    left: -1px !important;
+    top: -1px !important;
+}
+
+.tags {width: 470px;}
+.tags a {color: {color:Post info tags};}
+.tags a:hover {color: {color:Post info tags hover};}
+
+.pagenotes {
+    position: relative;
+    top: 10px;
+    background-color: {color:Post background};
+    color: {color:Post text};
+    padding: 20px 20px 20px 5px;
+    margin-bottom: 10px;
+    width: 475px;
+}
+.pagenotes img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.pagenotes ol {list-style-type: none;}
+.pagenotes li {margin-bottom: 5px;}
+
+
+{block:IfBackgroundWave}
+#wave {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+}{/block:IfBackgroundWave}
+
+.sidebar {
+	position: fixed;
+	width: 300px;
+	top: 11%;
+	{block:IfNotMirrorLayout}
+	left: 50%;
+	margin-left: -450px;
+	{/block:IfNotMirrorLayout}
+	{block:IfMirrorLayout}
+	right: 50%;
+	margin-right: -450px;
+	{/block:IfMirrorLayout}
+}
+.sidebar .anchor {
+	transform: scale(0.5);
+	position: absolute;
+	margin-top: -120px;
+	margin-left: -105px;
+	pointer-events: none;
+}
+.sidebar .anchor path {
+    fill: {color:Sidebar anchor};
+}
+.sidebar .anchor-fill {
+	width: 300px;
+	height: 270px;
+}
+{block:IfNotDisableBlogTitleCurve}
+.sidebar .blog-title {
+	position: absolute;
+	transform: scale(1.6);
+	margin-top: -115px;
+	margin-left: -40px;
+	pointer-events: none;
+}
+.sidebar .blog-title text {
+	text-anchor: middle;
+	fill: {color:Sidebar blog title};
+    font-family: {font:Blog title font};
+    font-size: {text:Curved blog title size};
+}{/block:IfNotDisableBlogTitleCurve}
+
+.sidebar .sidebar-img {
+    width: 100%;
+    height: 300px;
+    background-image: url('{image:Sidebar}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sidebar .blog-title-plain {
+    text-align: center;
+    margin: 10px 0;
+    color: {color:Sidebar blog title};
+    font-family: {font:Blog title font};
+}
+
+.sidebar .description {
+	{block:IfNotDisableBlogTitleCurve}margin-top: 30px;{/block:IfNotDisableBlogTitleCurve}
+	margin-bottom: 10px;
+	font-size: 10pt;
+	line-height: 1.3;
+	text-align: center;
+	max-height: 50px;
+	overflow-y: auto;
+	color: {color:Sidebar text};
+}
+.sidebar .description a {
+    text-shadow: none;
+}
+
+.sidebar .nav {
+	margin-top: 6px;
+	display: flex;
+	justify-content: space-around;
+}
+.sidebar .nav .nlink {
+	font-style: italic;
+	padding: 5px;
+	cursor: pointer;
+	position: relative;
+	text-transform: lowercase;
+	color: {color:Sidebar main nav};
+	font-family: {font:Nav link font};
+	transition: 0.3s;
+}
+.sidebar .nav .nlink:hover {
+    color: {color:Sidebar main nav hover};
+}
+.sidebar .nav-smol {
+	margin-top: 0px;
+	display: flex;
+	justify-content: space-around;
+}
+.sidebar .nav-smol .nlink {
+	font-style: italic;
+	padding: 3px 5px;
+	cursor: pointer;
+	position: relative;
+	font-size: 9pt;
+	text-transform: lowercase;
+	color: {color:Sidebar nav};
+	font-family: {font:Nav link font};
+	transition: 0.3s;
+}
+.sidebar .nav-smol .nlink:hover {
+    color: {color:Sidebar nav hover};
+}
+.sidebar .nav a, .sidebar .nav-smol a {
+    text-shadow: none;
+    border-bottom: none;
+}
+
+#pagcont {
+    font-size: 8pt;
+    margin-top: 5px;
+    text-align: right;
+    cursor: default;
+}
+
+.pagun i {color: {color:Pagination unavailable};}
+.pag i {
+    color: {color:Pagination};
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.pag:hover i {color: {color:Pagination hover};}
+
+.ripple-nav, .ripple-post {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: {color:Sidebar nav click ripple};
+    transform: scale(0);
+    position: absolute;
+    opacity: 0.4;
+}
+.ripple-post {background: {color:Post click ripple};}
+.rippleEffect-nav {
+    animation: rippleDrop .6s linear;
+}
+.rippleEffect-post {
+    animation: rippleDrop .8s linear;
+}
+
+@keyframes rippleDrop {
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+.enable-on-mobile {display: none;}
+
+@media screen and (max-width: 950px) {
+    .disable-on-mobile {
+        display: none !important;
+    }
+    .enable-on-mobile {
+        display: block;
+    }
+	.sidebar  {
+		position: static;
+		margin: 0 auto;
+	}
+	.container {
+		position: static;
+		margin: 0 auto;
+	}
+}
+
+{CustomCSS}
+</style>
+<script>
+$(document).tooltip({
+    track: true,
+    tooltipClass: "tooltiptheme",
+    items: ".tooltip"
+});
+</script>
+</head>
+<body>
+
+{block:IfBackgroundWave}<canvas resize="true" id="wave" style="-moz-user-select: none;" data-paper-scope="1" class=""></canvas>{/block:IfBackgroundWave}
+
+<div class="sidebar">
+    {block:IfNotCustomSidebarImage}
+	<svg version="1.1" class="anchor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 width="511.626px" height="511.626px" viewBox="0 0 511.626 511.626" style="enable-background:new 0 0 511.626 511.626;"
+		 xml:space="preserve">
+		<path d="M509.053,333.753c-1.711-1.711-3.901-2.566-6.563-2.566H401.991c-4.186,0-7.039,1.902-8.565,5.711
+			c-1.523,3.617-0.855,6.951,1.995,9.996l28.551,28.548c-12.751,17.323-30.785,31.929-54.101,43.828
+			c-23.315,11.898-49.152,19.745-77.516,23.555V258.096h54.816c4.948,0,9.236-1.812,12.854-5.424
+			c3.613-3.612,5.424-7.898,5.424-12.847v-36.547c0-4.947-1.811-9.229-5.424-12.847c-3.617-3.616-7.905-5.424-12.854-5.424h-54.816
+			v-46.536c11.04-6.473,19.89-15.275,26.553-26.409c6.663-11.138,9.996-23.363,9.996-36.691c0-20.174-7.139-37.401-21.412-51.673
+			C293.217,9.421,275.994,2.282,255.817,2.282c-20.177,0-37.404,7.139-51.682,21.416c-14.272,14.272-21.411,31.499-21.411,51.673
+			c0,13.328,3.333,25.553,9.994,36.691c6.662,11.134,15.513,19.936,26.551,26.409v46.536h-54.816c-4.952,0-9.235,1.809-12.85,5.424
+			c-3.618,3.617-5.426,7.9-5.426,12.847v36.547c0,4.949,1.809,9.235,5.426,12.847c3.619,3.616,7.902,5.424,12.85,5.424h54.816
+			v184.729c-28.359-3.812-54.2-11.663-77.514-23.559c-23.315-11.902-41.352-26.508-54.103-43.831l28.549-28.541
+			c2.853-3.053,3.521-6.379,1.997-9.999c-1.521-3.812-4.377-5.715-8.564-5.715H9.135c-2.666,0-4.856,0.855-6.567,2.573
+			C0.859,335.464,0,337.654,0,340.323v100.495c0,4.182,1.903,7.043,5.708,8.562c1.525,0.38,2.667,0.568,3.427,0.568
+			c2.667,0,4.854-0.856,6.567-2.561l26.552-26.556c22.648,27.217,52.96,48.772,90.932,64.665s78.847,23.846,122.626,23.846
+			c43.776,0,84.651-7.953,122.623-23.846c37.973-15.893,68.286-37.445,90.934-64.665l26.556,26.556
+			c1.903,1.704,4.086,2.561,6.564,2.561c0.76,0,1.902-0.192,3.429-0.568c3.806-1.52,5.708-4.381,5.708-8.562V340.323
+			C511.626,337.654,510.767,335.464,509.053,333.753z M268.66,88.218c-3.613,3.617-7.895,5.43-12.847,5.43
+			c-4.952,0-9.232-1.812-12.85-5.43c-3.617-3.612-5.424-7.898-5.424-12.847c0-4.947,1.807-9.229,5.424-12.847
+			c3.621-3.616,7.902-5.424,12.85-5.424s9.233,1.809,12.847,5.424c3.614,3.617,5.428,7.9,5.428,12.847
+			C274.087,80.319,272.274,84.606,268.66,88.218z"/>
+	</svg>
+	
+
+
+	<div class="anchor-fill"></div>
+	{block:IfNotDisableBlogTitleCurve}
+	<svg class="blog-title disable-on-mobile" viewBox="0 0 500 500">
+        <path style="vector-effect: non-scaling-stroke;" id="curve" d="m164.5,172.017c0,0 107,95.5 217,-12l-217,8z" stroke-width="1.5" fill="transparent"/>
+        <text width="500">
+          <textPath xlink:href="#curve" startOffset="25%">{Title}</textPath>
+        </text>
+    </svg>
+    <div class="blog-title-plain enable-on-mobile">{Title}</div>
+    {/block:IfNotDisableBlogTitleCurve}
+    {block:IfDisableBlogTitleCurve}<div class="blog-title-plain">{Title}</div>{/block:IfDisableBlogTitleCurve}{/block:IfNotCustomSidebarImage}
+    {block:IfCustomSidebarImage}
+    <div class="sidebar-img"></div>
+    <div class="blog-title-plain">{Title}</div>{/block:IfCustomSidebarImage}
+	<div class="description">
+		{Description}
+	</div>
+	<div class="nav">
+		<a href="/"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">home.</div></a>
+		<a href="/ask"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">msg.</div></a>
+		<a href="/archive"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">past.</div></a>
+		<a href="http://raiidens.tumblr.com/tagged/themesbyraiidens" class="tooltip" title="by raiidens"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">theme.</div></a>
+	</div>
+	<div class="nav-smol">
+	    {block:IfLink1Title}<a href="{text:Link 1 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 1 Title}.</div></a>{/block:IfLink1Title}
+	    {block:IfLink2Title}<a href="{text:Link 2 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 2 Title}.</div></a>{/block:IfLink2Title}
+	    {block:IfLink3Title}<a href="{text:Link 3 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 3 Title}.</div></a>{/block:IfLink3Title}
+	    {block:IfLink4Title}<a href="{text:Link 4 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 4 Title}.</div></a>{/block:IfLink4Title}
+	</div>
+	<div class="nav-smol">
+	    {block:IfLink5Title}<a href="{text:Link 5 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 5 Title}.</div></a>{/block:IfLink5Title}
+	    {block:IfLink6Title}<a href="{text:Link 6 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 6 Title}.</div></a>{/block:IfLink6Title}
+	    {block:IfLink7Title}<a href="{text:Link 7 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 7 Title}.</div></a>{/block:IfLink7Title}
+	    {block:IfLink8Title}<a href="{text:Link 8 URL}"><div class="nlink{block:IfNotDisableNavClickRipple} ripple-n{/block:IfNotDisableNavClickRipple}">{text:Link 8 Title}.</div></a>{/block:IfLink8Title}
+	</div>
+</div>
+
+
+
+
+<div class="container">
+{block:Posts}
+<div class="post{block:IfNotDisablePostClickRipple} ripple-p{/block:IfNotDisablePostClickRipple}" id="{PostID}">
+
+{block:Text}
+<div class="text"><div class="content">
+    {block:Title}<h3 class="title"><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+    {Body}
+</div></div>
+{/block:Text}
+
+{block:Photo}
+<div class="photo">
+    <div class="500px-posts" style="display: none; visibility: hidden">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<img src="{PhotoURL-500}" data-original="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" alt="{PhotoAlt}">{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>
+    <div class="400px-posts" style="display: none; visibility: hidden">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<img src="{PhotoURL-400}" data-original="{PhotoURL-400}" width="{PhotoWidth-400}" height="{PhotoHeight-400}" alt="{PhotoAlt}">{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>
+    <div class="250px-posts" style="display: none; visibility: hidden">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<img src="{PhotoURL-250}" data-original="{PhotoURL-250}" width="{PhotoWidth-250}" height="{PhotoHeight-250}" alt="{PhotoAlt}">{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>
+    {block:IfShowCaptions}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:IfShowCaptions}
+            {block:IfNotShowCaptions}
+            {block:PermalinkPage}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:PermalinkPage}
+            {/block:IfNotShowCaptions}
+</div>
+{/block:Photo}
+
+{block:Photoset}
+<div class="photoset">
+    <div class="500px-posts" style="display: none; visibility: hidden"><div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}<div class="photo-data">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<div class="pxu-photo"><img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div>{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>{/block:Photos}</div></div>
+    <div class="400px-posts" style="display: none; visibility: hidden"><div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}<div class="photo-data">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<div class="pxu-photo"><img src="{PhotoURL-400}" width="{PhotoWidth-400}" height="{PhotoHeight-400}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div>{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>{/block:Photos}</div></div>
+    <div class="250px-posts" style="display: none; visibility: hidden"><div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}<div class="photo-data">{block:IfClickImageForFullRes}{block:HighRes}<a href="{PhotoURL-HighRes}" data-lightbox="{PostID}">{/block:HighRes}{/block:IfClickImageForFullRes}<div class="pxu-photo"><img src="{PhotoURL-250}" width="{PhotoWidth-250}" height="{PhotoHeight-250}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div>{block:IfClickImageForFullRes}{block:HighRes}</a>{/block:HighRes}{/block:IfClickImageForFullRes}</div>{/block:Photos}</div></div>
+    {block:IfShowCaptions}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:IfShowCaptions}
+            {block:IfNotShowCaptions}
+            {block:PermalinkPage}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:PermalinkPage}
+    {/block:IfNotShowCaptions}
+</div>
+{/block:Photoset}
+       
+       
+{block:Quote}
+<div class="quote"><div class="content">
+    <h3><i class="fa fa-quote-left fa-2x fa-pull-left" aria-hidden="true" style="position: relative; top: -7px; padding-top: 10px; padding-left: 5px;"></i>{Quote}</h3>
+    {block:Source}<span style="margin-left: 2em;">— {Source}</span>{/block:Source}
+</div></div>
+{/block:Quote}
+
+{block:Link}
+<div class="link"><div class="content">
+    <h3 class="title"><a href="{URL}" {Target}>{Name}</a></h3>
+    {block:Description}{Description}{/block:Description}{Excerpt}
+    {Excerpt}
+</div></div>
+{/block:Link}
+
+{block:Chat}
+<div class="chat"><div class="content">
+    {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+        {block:Lines}{block:Label}<b>{Label}</b>{/block:Label}
+        {Line}<br>
+        {/block:Lines}
+</div></div>
+{/block:Chat}
+
+{block:Audio}
+<div class="audio"><div class="content">
+    {block:AlbumArt}<div style="float: left;"><img src="{AlbumArtURL}" data-original="{AlbumArtURL}" width="150" height="150"></div>{/block:AlbumArt}
+    <div style="position: relative; left: 10px; top: 5px">
+    {block:trackname}<div class="aline"><b>track name:</b> {trackname}</div>{/block:trackname}
+            {block:artist}<div class="aline"><b>artist:</b> {artist}</div>{/block:artist}
+            {block:album}<div class="aline"><b>album:</b> {album}</div>{/block:album}
+            {block:playcount}<div class="aline"><b>play count:</b> {playcount}</div>{/block:playcount}
+    </div>
+    <div style="clear: both;"></div>
+    {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
+    {block:IfShowCaptions}
+            {block:Caption}
+            {Caption}
+            {/block:Caption}
+            {/block:IfShowCaptions}
+            {block:IfNotShowCaptions}
+            {block:PermalinkPage}
+            {block:Caption}
+            {Caption}
+            {/block:Caption}
+            {/block:PermalinkPage}
+    {/block:IfNotShowCaptions}
+</div></div>
+{/block:Audio}
+
+{block:Video}
+<div class="video">
+    <div class="video-player"><div class="500px-posts" style="display: none; visibility: hidden">{Video-500}</div><div class="400px-posts" style="display: none; visibility: hidden">{Video-400}</div><div class="250px-posts" style="display: none; visibility: hidden">{Video-250}</div></div>
+    {block:IfShowCaptions}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:IfShowCaptions}
+            {block:IfNotShowCaptions}
+            {block:PermalinkPage}
+            {block:Caption}
+            <div class="content">{Caption}</div>
+            {/block:Caption}
+            {/block:PermalinkPage}
+            {/block:IfNotShowCaptions}
+</div>
+{/block:Video}
+
+{block:Answer}
+<div class="answer"><div class="content">
+    <img class="askerportrait" src="{AskerPortraitURL-64}" data-original="{AskerPortraitURL-64}">
+    <div style="color: {color:Asker name};">
+    <div class="a">
+    <b>{Asker} asks</b>: <div class="question">{Question}</div>
+    </div>
+    </div><br>
+    <div class="answert">{Answer}</div>
+</div></div>
+{/block:Answer}
+        
+            {block:Date}
+            <div class="infobox">
+            <table style="width: 470px;"><tr><td><a href="{Permalink}" class="tooltip" title="{TimeAgo}">{ShortMonth} {DayOfMonth}, {Year}</a>{block:RebloggedFrom} <i class="fa fa-retweet" aria-hidden="true"></i> <a href="{ReblogParentURL}">{ReblogParentName}</a>{block:PermalinkPage} <i class="fa fa-pencil" aria-hidden="true"></i> <a href="{ReblogRootURL}">{ReblogRootName}</a>{/block:PermalinkPage}{/block:RebloggedFrom} — <a href="{Permalink}" class="tooltip" title="Permalink">{NoteCountWithLabel}</a>{block:IfNotAlwaysShowTags}{block:HasTags} — <a href="javaScript:void(0);"><span class="tagtoggle">Tags</span></a>{/block:HasTags}{/block:IfNotAlwaysShowTags}</td><td style="width: 60px;">
+            
+            
+            <ul class="rebloglike">
+            <li class="like-button tooltip" title="Like">
+            {LikeButton size="14"}
+    <svg width="14" height="14" viewBox="0 0 32 32"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path d="M29.714 10.643q0-1.446-0.384-2.554t-0.982-1.759-1.455-1.063-1.679-0.554-1.75-0.143-2 0.455-1.973 1.143-1.545 1.286-1.071 1.098q-0.321 0.393-0.875 0.393t-0.875-0.393q-0.429-0.5-1.071-1.098t-1.545-1.286-1.973-1.143-2-0.455-1.75 0.143-1.679 0.554-1.455 1.063-0.982 1.759-0.384 2.554q0 3 3.339 6.339l10.375 10 10.357-9.982q3.357-3.357 3.357-6.357zM32 10.643q0 3.946-4.089 8.036l-11.125 10.714q-0.321 0.321-0.786 0.321t-0.786-0.321l-11.143-10.75q-0.179-0.143-0.491-0.464t-0.991-1.17-1.214-1.741-0.955-2.161-0.42-2.464q0-3.929 2.268-6.143t6.268-2.214q1.107 0 2.259 0.384t2.143 1.036 1.705 1.223 1.357 1.214q0.643-0.643 1.357-1.214t1.705-1.223 2.143-1.036 2.259-0.384q4 0 6.268 2.214t2.268 6.143z"></path>
+    </svg>
+</li>
+            
+            <li class="reblog-button tooltip" title="Reblog">
+                <a href="{ReblogURL}"><svg width="14" height="14" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path class="path1" d="M27.802 5.197c-2.925-3.194-7.13-5.197-11.803-5.197-8.837 0-16 7.163-16 16h3c0-7.18 5.82-13 13-13 3.844 0 7.298 1.669 9.678 4.322l-4.678 4.678h11v-11l-4.198 4.197z"></path>
+<path class="path2" d="M29 16c0 7.18-5.82 13-13 13-3.844 0-7.298-1.669-9.678-4.322l4.678-4.678h-11v11l4.197-4.197c2.925 3.194 7.13 5.197 11.803 5.197 8.837 0 16-7.163 16-16h-3z"></path>
+    </svg></a>
+            </li>
+            </ul>
+                
+                
+            </td></tr>
+            {block:HasTags}<tr><td colspan="3"><span class="tags" {block:IfNotAlwaysShowTags}style="display: none;"{/block:IfNotAlwaysShowTags}>{block:Tags}<a href="{TagURL}">#{Tag}</a>   {/block:Tags}</span></td></tr>{/block:HasTags}
+            </table>
+            </div>
+            </div><!-- .post end -->
+            {/block:Date}
+            
+        {block:PermalinkPage}{block:PostNotes}<div class="post pagenotes{block:IfNotDisableNavClickRipple} ripple-p{/block:IfNotDisableNavClickRipple}">{PostNotes}</div>{/block:PostNotes}{/block:PermaLinkPage}
+{/block:Posts}
+
+{block:Pagination}<div class="post{block:IfNotDisableNavClickRipple} ripple-p{/block:IfNotDisableNavClickRipple}" id="pagcont" style="height: 30px;"><table id="info-table" style="font-size: 20px; position: relative; top: -1px; margin: 0px auto;"><tr><td style="text-align: left;">{block:PreviousPage}<a href="{PreviousPage}">« Previous</a>{/block:PreviousPage}</td><td style="text-align: right;">{block:NextPage}<a href="{NextPage}">Next »</a>{/block:NextPage}</td></tr></table></div>{/block:Pagination}
+
+</div>
+</div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.10.3/paper-full.min.js"></script>
+<script src="http://static.tumblr.com/o4povtk/bMwopcun4/lightbox.js"></script>
+<script>
+$(document).ready(function(){
+    
+    lightbox.option({
+      'showImageNumberLabel': false,
+    })
+        
+    $('p').each(function() {
+        var text = $(this).html();
+        var regex = /\(Source:.*\)+/ig;
+        text = text.replace(regex, '');
+        regex = /\(via(.*)\)+/ig;
+        text = text.replace(regex, '');
+        $(this).html(text);
+    });
+    
+    $('.photo-slideshow').pxuPhotoset({
+       lightbox: true,
+       rounded: false,
+       gutter: '3px',
+       borderRadius: '0px',
+       photoset: '.photo-slideshow',
+       photoWrap: '.photo-data',
+       photo: '.pxu-photo'
+   });
+   
+   var postWidth = {select:Post Width};
+	$("blockquote img").css("maxWidth", postWidth-50 + "px");
+	$("#pagcont table").css("width", postWidth-20 + "px");
+	$(".infobox, .infobox table").css("width", postWidth-30 + "px");
+	$(".pagenotes").css("width", postWidth-25 + "px");
+	if (postWidth == 500)
+	    $(".500px-posts").css({display: "block", visibility: "visible"});
+	else if (postWidth == 400) {
+	    $(".400px-posts").css({display: "block", visibility: "visible"});
+	} else if (postWidth == 250)
+	    $(".250px-posts").css({display: "block", visibility: "visible"});
+
+    {block:IfNotAlwaysShowTags}
+    $(".tagtoggle").click(function() {
+        $(this).parent().parent().parent().parent().find(".tags").toggle("blind", 500);
+    });{/block:IfNotAlwaysShowTags}
+    
+    {block:IfNotDisableNavClickRipple}
+    $(".ripple-n").click(function (e) {
+  
+        $(".ripple-nav").remove();
+    
+        var posX = $(this).offset().left,
+            posY = $(this).offset().top,
+            dWidth = $(this).width(),
+            dHeight =  $(this).height();
+      
+        $(this).prepend("<span class='ripple-nav'></span>");
+    
+        if(dWidth >= dHeight) {
+            dHeight = dWidth;
+        } else {
+            dWidth = dHeight; 
+        }
+      
+        var x = e.pageX - posX - dWidth / 2;
+        var y = e.pageY - posY - dHeight / 2;
+      
+        $(".ripple-nav").css({
+            width: dWidth,
+            height: dHeight,
+            top: y + 'px',
+            left: x + 'px'
+        }).addClass("rippleEffect-nav");
+    });{/block:IfNotDisableNavClickRipple}
+    {block:IfNotDisablePostClickRipple}
+    $(".ripple-p").click(function (e) {
+  
+        $(".ripple-post").remove();
+    
+        var posX = $(this).offset().left,
+            posY = $(this).offset().top,
+            dWidth = $(this).width(),
+            dHeight =  $(this).height();
+      
+        $(this).prepend("<span class='ripple-post'></span>");
+    
+        if(dWidth >= dHeight) {
+            dHeight = dWidth;
+        } else {
+            dWidth = dHeight; 
+        }
+      
+        var x = e.pageX - posX - dWidth / 2;
+        var y = e.pageY - posY - dHeight / 2;
+      
+        $(".ripple-post").css({
+            width: dWidth,
+            height: dHeight,
+            top: y + 'px',
+            left: x + 'px'
+        }).addClass("rippleEffect-post");
+    });{/block:IfNotDisablePostClickRipple}
+});
+</script>
+{block:IfLazyLoadImages}
+<script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
+<script type="text/javascript">
+$("img").lazyload({
+    placeholder : "http://static.tumblr.com/twte3d7/RSvlio0k5/grey.gif",
+    {block:IfFadeInImagesOnLoad}effect: "fadeIn",{/block:IfFadeInImagesOnLoad}
+	threshold: 500
+});
+</script>
+{/block:IfLazyLoadImages}
+{block:IfBackgroundWave}
+<script type="text/paperscript" canvas="wave">
+var values = {
+	friction: 0.3,
+	timeStep: 0.01,
+	amount: 20,
+	mass: 1,
+	count: 0
+};
+values.invMass = 1 / values.mass;
+
+var path, springs;
+var size = view.size * [1.2, 1];
+
+var Spring = function(a, b, strength, restLength) {
+	this.a = a;
+	this.b = b;
+	this.restLength = restLength || 80;
+	this.strength = strength ? strength : 0.55;
+	this.mamb = values.invMass * values.invMass;
+};
+
+Spring.prototype.update = function() {
+	var delta = this.b - this.a;
+	var dist = delta.length;
+	var normDistStrength = (dist - this.restLength) /
+			(dist * this.mamb) * this.strength;
+	delta.y *= normDistStrength * values.invMass * 0.2;
+	if (!this.a.fixed)
+		this.a.y += delta.y;
+	if (!this.b.fixed)
+		this.b.y -= delta.y;
+};
+
+
+function createPath(strength) {
+	var path = new Path({
+		fillColor: 'rgba(255, 255, 255, 0.1)'
+	});
+	springs = [];
+	for (var i = 0; i <= values.amount; i++) {
+		var segment = path.add(new Point(i / values.amount, 0.5) * size);
+		var point = segment.point;
+		if (i == 0 || i == values.amount)
+			point.y += size.height;
+		point.px = point.x;
+		point.py = point.y;
+		// The first two and last two points are fixed:
+		point.fixed = i < 2 || i > values.amount - 2;
+		if (i > 0) {
+			var spring = new Spring(segment.previous.point, point, strength);
+			springs.push(spring);
+		}
+	}
+	path.position.x -= size.width / 4;
+	return path;
+}
+
+function onResize() {
+	if (path)
+		path.remove();
+	size = view.bounds.size * [2, 1];
+	path = createPath(0.1);
+}
+
+function onMouseMove(event) {
+	var location = path.getNearestLocation(event.point);
+	var segment = location.segment;
+	var point = segment.point;
+
+	if (!point.fixed && location.distance < size.height / 4) {
+		var y = event.point.y;
+		point.y += (y - point.y) / 6;
+		if (segment.previous && !segment.previous.fixed) {
+			var previous = segment.previous.point;
+			previous.y += (y - previous.y) / 24;
+		}
+		if (segment.next && !segment.next.fixed) {
+			var next = segment.next.point;
+			next.y += (y - next.y) / 24;
+		}
+	}
+}
+
+function onFrame(event) {
+	updateWave(path);
+}
+
+function updateWave(path) {
+	var force = 1 - values.friction * values.timeStep * values.timeStep;
+	for (var i = 0, l = path.segments.length; i < l; i++) {
+		var point = path.segments[i].point;
+		var dy = (point.y - point.py) * force;
+		point.py = point.y;
+		point.y = Math.max(point.y + dy, 0);
+	}
+
+	for (var j = 0, l = springs.length; j < l; j++) {
+		springs[j].update();
+	}
+	path.smooth({ type: 'continuous' });
+}
+</script>{/block:IfBackgroundWave}
+</html>
