@@ -5,7 +5,7 @@
  |  Theme #24 by raiidens (@ tumblr)
  |  Published October 2017
  |	Updated October 2018
- |  Ver. 3.01
+ |  Ver. 3.02
  |
  |  Edit as much as you like, but please do not
  |  claim as your own work, and leave credit somewhere.
@@ -335,11 +335,10 @@ a:hover {color: {color:Post link hover};}
 
 .photo, .photoset {padding: 0px;}
 
-.photoset .photo-slideshow {
-    margin-bottom: 3px;
-}
+.photoset .photo-slideshow {margin-bottom: 3px;}
 
 .post .caption.post-captions-disabled {display: none;}
+.post .permalink-caption {display: block !important;}
 
 .content {padding: 10px;}
 
@@ -496,7 +495,10 @@ a:hover {color: {color:Post link hover};}
 
 .reblog-button svg path, .like-button svg path {fill: {color:Reblog and like buttons};}
 
-.like-button {position: relative;}
+.like-button {
+    position: relative;
+    cursor: pointer;
+}
 .like-button .like_button {
     position: absolute;
     top: 0;
@@ -866,10 +868,7 @@ $(document).tooltip({
         <div class="photo">
             <img class="photo-post-img" src="{PhotoURL-HighRes}" data-original="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-low-res="{PhotoURL-500}" data-high-res="{PhotoURL-HighRes}" />
             
-            {block:Caption}<div class="content caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {block:PermalinkPage}
-                {block:Caption}<div class="content permalink-caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {/block:PermalinkPage}
+            {block:Caption}<div class="content{block:PermalinkPage} permalink-caption{/block:PermalinkPage} caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
         </div>
         {/block:Photo}
 
@@ -886,10 +885,7 @@ $(document).tooltip({
                 {/block:Photos}
             </div>
             
-            {block:Caption}<div class="content caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {block:PermalinkPage}
-                {block:Caption}<div class="content permalink-caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {/block:PermalinkPage}
+            {block:Caption}<div class="content{block:PermalinkPage} permalink-caption{/block:PermalinkPage} caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
         </div>
         {/block:Photoset}
        
@@ -930,10 +926,7 @@ $(document).tooltip({
             <div class="clearfix"></div>
             {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
             
-            {block:Caption}<div class="content caption {select:Post captions}">{Caption}</div>{/block:Caption}
-            {block:PermalinkPage}
-                {block:Caption}<div class="content permalink-caption {select:Post captions}">{Caption}</div>{/block:Caption}
-            {/block:PermalinkPage}
+            {block:Caption}<div class="content{block:PermalinkPage} permalink-caption{/block:PermalinkPage} caption {select:Post captions}">{Caption}</div>{/block:Caption}
         </div></div>
         {/block:Audio}
 
@@ -941,10 +934,7 @@ $(document).tooltip({
         <div class="video">
             <div class="video-player">{Video-500}</div>
             
-            {block:Caption}<div class="content caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {block:PermalinkPage}
-                {block:Caption}<div class="content permalink-caption {select:Post captions} {select:Post link underline}">{Caption}</div>{/block:Caption}
-            {/block:PermalinkPage}
+            {block:Caption}<div class="content{block:PermalinkPage} permalink-caption{/block:PermalinkPage} caption {select:Post captions}">{Caption}</div>{/block:Caption}
         </div>
         {/block:Video}
 
@@ -963,7 +953,7 @@ $(document).tooltip({
         <div class="infobox">
             <div class="first-row">
                 <div>
-                    <a href="{Permalink}" title="{TimeAgo}">{ShortMonth} {DayOfMonth}, {Year}</a>{block:RebloggedFrom} <i class="fa fa-retweet" aria-hidden="true"></i> <a href="{ReblogParentURL}">{ReblogParentName}</a>{block:PermalinkPage} <i class="fa fa-pencil" aria-hidden="true"></i> <a href="{ReblogRootURL}">{ReblogRootName}</a>{/block:PermalinkPage}{/block:RebloggedFrom} — <a href="{Permalink}" title="Permalink">{NoteCountWithLabel}</a>{block:HasTags}<span class="tag-toggle {select:Post tags}"> — <span>Tags</span></span>{/block:HasTags}
+                    <a href="{Permalink}" title="{TimeAgo}">{ShortMonth} {DayOfMonth}, {Year}</a>{block:RebloggedFrom} <i class="fa fa-retweet" aria-hidden="true"></i> <a href="{ReblogParentURL}">{ReblogParentName}</a>{block:PermalinkPage} <i class="fa fa-pencil-alt" aria-hidden="true"></i> <a href="{ReblogRootURL}">{ReblogRootName}</a>{/block:PermalinkPage}{/block:RebloggedFrom} — <a href="{Permalink}" title="Permalink">{NoteCountWithLabel}</a>{block:HasTags}<span class="tag-toggle {select:Post tags}"> — <span>Tags</span></span>{/block:HasTags}
                 </div>
                 
                 <div>
